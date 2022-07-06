@@ -91,5 +91,9 @@ class Database
 
     public function massDelete($productIds)
     {
+        $in  = str_repeat('?,', count($productIds) - 1) . '?';
+        $sql = "DELETE FROM product WHERE product_id IN ($in)";
+        $statement = $this->prepare($sql);
+        $statement->execute($productIds);
     }
 }

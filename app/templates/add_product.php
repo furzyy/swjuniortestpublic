@@ -43,7 +43,6 @@
         </div>
     </div>
 
-
     <div class="product-type-switcher">
         <label class="type-switcher-label" for="type_switcher">Type Switcher</label>
         <select name="type_switcher" id="product_type" onchange="new Product().typeSwitch(this.value)">

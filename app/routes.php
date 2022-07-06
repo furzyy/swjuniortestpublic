@@ -3,6 +3,7 @@
 $page = $_SERVER["REQUEST_URI"] ?? null;
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
+
 switch ($page) {
     case @"/":
         $dvdCollection = $db->readList('dvd');
@@ -40,5 +41,10 @@ switch ($page) {
         require_once __DIR__."/templates/add_product.php";
         break;
     case @"/delete_products":
+        $productIds = array_map(function ($item) {
+            return trim($item, '"');
+        }, explode(',', array_key_first($_POST['{"productIds":'])));
 
+        $db->massDelete($productIds);
+        echo true;
 }
