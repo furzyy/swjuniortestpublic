@@ -9,7 +9,7 @@ class Database
         $database = 'test';
         $username = 'root';
         $password = 'root';
-        $servername = 'localhost';
+        $servername = '127.0.0.1';
         $dsn = "mysql:dbname=$database;host=$servername:3306";
 
         $this->PDO = new PDO($dsn, $username, $password);
