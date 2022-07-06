@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__."/../app/core/Database.php";
-
+$db = new Database();
 require_once __DIR__ ."/../app/core/Model.php";
 require_once __DIR__."/../app/models/AbstractProduct.php";
 require_once __DIR__."/../app/models/BaseProduct.php";

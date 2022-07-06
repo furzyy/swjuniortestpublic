@@ -34,57 +34,6 @@
                 </div>
             <?php endforeach; ?>
 
-            <?php foreach ($dvdCollection as $item) : ?>
-                <div id="<?= $item->getProductId() ?>" class="product-box">
-                    <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
-                    <div class="product-box-content">
-                        <div><?= $item->getSku() ?></div>
-                        <div><?= $item->getName() ?></div>
-                        <div><?= $item->getPrice() ?> $</div>
-                        <div>Size: <?= $item->getSize() ?> MB</div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-
-
-            <?php foreach ($dvdCollection as $item) : ?>
-                <div id="<?= $item->getProductId() ?>" class="product-box">
-                    <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
-                    <div class="product-box-content">
-                        <div><?= $item->getSku() ?></div>
-                        <div><?= $item->getName() ?></div>
-                        <div><?= $item->getPrice() ?> $</div>
-                        <div>Size: <?= $item->getSize() ?> MB</div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-
-
-            <?php foreach ($dvdCollection as $item) : ?>
-                <div id="<?= $item->getProductId() ?>" class="product-box">
-                    <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
-                    <div class="product-box-content">
-                        <div><?= $item->getSku() ?></div>
-                        <div><?= $item->getName() ?></div>
-                        <div><?= $item->getPrice() ?> $</div>
-                        <div>Size: <?= $item->getSize() ?> MB</div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-
-
-            <?php foreach ($dvdCollection as $item) : ?>
-                <div id="<?= $item->getProductId() ?>" class="product-box">
-                    <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
-                    <div class="product-box-content">
-                        <div><?= $item->getSku() ?></div>
-                        <div><?= $item->getName() ?></div>
-                        <div><?= $item->getPrice() ?> $</div>
-                        <div>Size: <?= $item->getSize() ?> MB</div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-
             <?php foreach ($bookCollection as $item) : ?>
             <div id="<?= $item->getProductId() ?>" class="product-box">
                 <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
@@ -95,30 +44,6 @@
                     <div>Weight: <?= $item->getWeight() ?>KG</div>
                 </div>
             </div>
-            <?php endforeach; ?>
-
-            <?php foreach ($furnitureCollection as $item) : ?>
-                <div id="<?= $item->getProductId() ?>" class="product-box">
-                    <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
-                    <div class="product-box-content">
-                        <div><?= $item->getSku() ?></div>
-                        <div><?= $item->getName() ?></div>
-                        <div><?= $item->getPrice() ?> $</div>
-                        <div> Dimension: <?= $item->getHeight() ?> x <?= $item->getWidth() ?> x <?= $item->getLength() ?> </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-
-            <?php foreach ($furnitureCollection as $item) : ?>
-                <div id="<?= $item->getProductId() ?>" class="product-box">
-                    <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
-                    <div class="product-box-content">
-                        <div><?= $item->getSku() ?></div>
-                        <div><?= $item->getName() ?></div>
-                        <div><?= $item->getPrice() ?> $</div>
-                        <div> Dimension: <?= $item->getHeight() ?> x <?= $item->getWidth() ?> x <?= $item->getLength() ?> </div>
-                    </div>
-                </div>
             <?php endforeach; ?>
 
             <?php foreach ($furnitureCollection as $item) : ?>
