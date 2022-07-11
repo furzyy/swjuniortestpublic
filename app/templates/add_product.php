@@ -25,23 +25,33 @@
 </div>
 
 
-<form class="add-product" action="" method="post">
+
+<form id="product-form" class="add-product" action="" method="post" novalidate>
     <div class="product-inputs">
         <div>
             <label for="sku">SKU</label>
-            <input name="sku" id="sku" type="text" required>
+            <input name="sku" id="sku" type="text">
         </div>
 
         <div>
             <label for="name">Name</label>
-            <input name="name" id="name" type="text" required>
+            <input name="name" id="name" type="text">
         </div>
 
         <div>
             <label for="price">Price($)</label>
-            <input name="price" id="price" type="number" required>
+            <input name="price" id="price" type="text">
         </div>
     </div>
+
+    <div class="errors">
+        <ul>
+            <?php foreach ($errors as $errMsg) : ?>
+                <li><?= $errMsg ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
 
     <div class="product-type-switcher">
         <label class="type-switcher-label" for="type_switcher">Type Switcher</label>
@@ -88,9 +98,6 @@
             <p class="description">Please, provide weight</p>
         </div>
     </div>
-    <div>
-        <button>save</button>
-    </div>
 </form>
 
 <footer class="product-list_footer page-content_footer">
@@ -100,3 +107,9 @@
 <script src="assets/js/product.js"></script>
 </body>
 </html>
+
+<script>
+    document.getElementById('save-product-btn').addEventListener('click', function () {
+        document.getElementById('product-form').submit()
+    })
+</script>

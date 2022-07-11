@@ -6,10 +6,18 @@ class Database
 
     public function __construct()
     {
-        $database = 'test';
-        $username = 'root';
-        $password = 'root';
-        $servername = '127.0.0.1';
+        $databaseCredentials = [
+            'database' => 'test',
+            'username' => 'root',
+            'password' => 'root',
+            'servername' => 'localhost'
+        ];
+//        $databaseCredentials = require_once BASE_DIR."/app/config/database.php";
+        $database = $databaseCredentials["database"];
+        $servername = $databaseCredentials["servername"];
+        $username = $databaseCredentials["username"];
+        $password = $databaseCredentials["password"];
+
         $dsn = "mysql:dbname=$database;host=$servername:3306";
 
         $this->PDO = new PDO($dsn, $username, $password);

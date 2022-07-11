@@ -1,7 +1,7 @@
 class Product
 {
     postData(data) {
-        fetch('delete_products', {
+        fetch('delete-products', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json, text/plain, */*',

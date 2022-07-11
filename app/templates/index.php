@@ -15,7 +15,7 @@
             <header>
                 <h2 class="product-list-title">Product List</h2>
                 <div class="product-list-header-buttons">
-                    <button id="add-product-btn"><a href="add_product">ADD</a></button>
+                    <button id="add-product-btn"><a href="add-product">ADD</a></button>
                     <button id="delete-product-btn" onclick="new Product().delete()">MASS DelETE</button>
                 </div>
             </header>

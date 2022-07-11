@@ -3,26 +3,43 @@
 $page = $_SERVER["REQUEST_URI"] ?? null;
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-
 switch ($page) {
     case @"/":
         $dvdCollection = $db->readList('dvd');
         $bookCollection = $db->readList('book');
         $furnitureCollection = $db->readList("furniture");
 
-        require_once __DIR__."/templates/index.php";
+        $template->render('index.php',
+            [
+                'dvdCollection' => $dvdCollection,
+                'bookCollection' => $bookCollection,
+                'furnitureCollection' => $furnitureCollection
+            ]);
         break;
 
-    case @"/add_product":
+    case @"/add-product":
         if ($requestMethod === "POST") {
             $productType = ucfirst($_POST["type_switcher"]);
 
-            require_once __DIR__."/models/".$productType.".php";
+            $validator = new Validation();
+
+            if (!$validator->validatePostData($productType)) {
+                if ($validator->getErrors()) {
+                    $template->render(
+                        'add_product.php',
+                        ['errors' => $validator->getErrors()]
+                    );
+                }
+                exit();
+            }
+
+            require_once BASE_DIR."/app/models/".$productType.".php";
 
             $productObject = new $productType();
             $productObject->setSku($_POST["sku"]);
             $productObject->setName($_POST["name"]);
             $productObject->setPrice($_POST["price"]);
+
 
             switch ($productType) {
                 case "Dvd":
@@ -38,9 +55,13 @@ switch ($page) {
             }
             $productObject->create($productType);
         }
-        require_once __DIR__."/templates/add_product.php";
+
+        $template->render(
+            'add_product.php',
+            ['errors' => []]
+        );
         break;
-    case @"/delete_products":
+    case @"/delete-products":
         $productIds = array_map(function ($item) {
             return trim($item, '"');
         }, explode(',', array_key_first($_POST['{"productIds":'])));

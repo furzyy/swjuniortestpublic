@@ -39,8 +39,8 @@
     padding: 25px 15px;
 }
 .add-product {
-    /*!*height: 81vh;*!*/
-    /*!*overflow-y: hidden;*!*/
+    height: 81vh;
+    overflow-y: hidden;
 }
 
 .product-inputs {
@@ -89,11 +89,16 @@
     display: block;
 }
 
-.product .description {
+.description {
     margin-top: 1rem;
 }
 
 .product-list_footer {
     border-top: 3px solid #333333;
     text-align: center;
+}
+
+.errors {
+    color: #ff0000;
+    font-size: 12px;
 }
