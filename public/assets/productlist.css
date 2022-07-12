@@ -85,3 +85,11 @@
     text-align: center;
     margin-bottom: 15px;
 }
+
+.empty-product-msg {
+    display: none;
+    justify-content:  center;
+    align-items: center;
+    padding-top: 30px;
+    font-size: 25px;
+}

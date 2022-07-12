@@ -18,6 +18,7 @@ class Product
                     let id = data['productIds'][i]
                     document.getElementById(id).remove()
                 }
+                window.location.reload();
             }
         });
     }
@@ -25,6 +26,7 @@ class Product
     delete() {
         const checkboxes = document.getElementsByClassName('delete-checkbox')
         const checkboxesLength = checkboxes.length
+
 
         let productIds = []
         for (let i = 0; i < checkboxesLength; i++) {
@@ -35,6 +37,8 @@ class Product
         }
 
         this.postData({'productIds': productIds})
+
+
     }
 
     typeSwitch(productName) {

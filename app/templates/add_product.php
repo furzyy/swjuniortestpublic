@@ -31,6 +31,7 @@
         <div>
             <label for="sku">SKU</label>
             <input name="sku" id="sku" type="text">
+
         </div>
 
         <div>

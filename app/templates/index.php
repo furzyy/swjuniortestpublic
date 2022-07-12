@@ -21,6 +21,10 @@
             </header>
         </div>
 
+        <div class="empty-product-msg">
+            There is no product added
+        </div>
+
         <div class="product-list-content">
             <?php foreach ($dvdCollection as $item) : ?>
                 <div id="<?= $item->getProductId() ?>" class="product-box">
@@ -69,3 +73,10 @@
 </body>
 </html>
 <script src="assets/js/product.js"></script>
+
+<script>
+    if (document.querySelector('.product-box') === null) {
+        document.querySelector(".empty-product-msg").style.display = "flex"
+        document.querySelector(".product-list-content").style.height = "75vh"
+    }
+</script>
