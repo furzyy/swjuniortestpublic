@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/productlist.css">
     <title>Product List</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -21,14 +20,21 @@
             </header>
         </div>
 
-        <div class="empty-product-msg">
-            There is no product added
-        </div>
+
+            <?php if (empty($dvdCollection) && empty($bookCollection) && empty($furnitureCollection)): ?>
+                <div class="empty-product-msg">
+                        There is no product added
+                </div>
+            <?php endif;?>
+
+<!--        <div class="empty-product-msg">-->
+<!--            There is no product added-->
+<!--        </div>-->
 
         <div class="product-list-content">
             <?php foreach ($dvdCollection as $item) : ?>
-                <div id="<?= $item->getProductId() ?>" class="product-box">
-                    <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
+                <div id="<?= $item->getSku() ?>" class="product-box">
+                    <input value="<?= $item->getSku() ?>" type="checkbox" class="delete-checkbox">
                     <div class="product-box-content">
                         <div><?= $item->getSku() ?></div>
                         <div><?= $item->getName() ?></div>
@@ -39,8 +45,8 @@
             <?php endforeach; ?>
 
             <?php foreach ($bookCollection as $item) : ?>
-            <div id="<?= $item->getProductId() ?>" class="product-box">
-                <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
+            <div id="<?= $item->getSku() ?>" class="product-box">
+                <input value="<?= $item->getSku() ?>" type="checkbox" class="delete-checkbox">
                 <div class="product-box-content">
                     <div><?= $item->getSku() ?></div>
                     <div><?= $item->getName() ?></div>
@@ -51,8 +57,8 @@
             <?php endforeach; ?>
 
             <?php foreach ($furnitureCollection as $item) : ?>
-                <div id="<?= $item->getProductId() ?>" class="product-box">
-                    <input value="<?= $item->getProductId() ?>" type="checkbox" class="delete-checkbox">
+                <div id="<?= $item->getSku() ?>" class="product-box">
+                    <input value="<?= $item->getSku() ?>" type="checkbox" class="delete-checkbox">
                     <div class="product-box-content">
                         <div><?= $item->getSku() ?></div>
                         <div><?= $item->getName() ?></div>
@@ -65,18 +71,19 @@
         </div>
     </div>
 </div>
-</div>
 
 <footer class="product-list_footer">
     <p>Scandiweb Test Assignment</p>
 </footer>
-</body>
-</html>
 <script src="assets/js/product.js"></script>
-
 <script>
     if (document.querySelector('.product-box') === null) {
         document.querySelector(".empty-product-msg").style.display = "flex"
         document.querySelector(".product-list-content").style.height = "75vh"
     }
 </script>
+</body>
+</html>
+
+
+

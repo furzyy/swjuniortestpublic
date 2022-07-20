@@ -1,22 +1,19 @@
 <?php
 
-class Dvd extends BaseProduct
+class Dvd extends AbstractProduct
 {
-    public int $size;
-    public int $productId;
-
     public function getSize(): int
     {
-        return $this->size;
+        return $this->getData('size');
     }
 
     public function setSize(int $size): void
     {
-        $this->size = $size;
+        $this->setData('size', $size);
     }
 
     public function getProductId(): int
     {
-        return $this->productId;
+        return $this->getData('productId');
     }
 }

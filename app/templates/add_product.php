@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/addproduct.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Product Add</title>
 </head>
 <body>
@@ -30,6 +29,7 @@
     <div class="product-inputs">
         <div>
             <label for="sku">SKU</label>
+            <?php ?>
             <input name="sku" id="sku" type="text">
 
         </div>
@@ -106,11 +106,11 @@
 </footer>
 
 <script src="assets/js/product.js"></script>
-</body>
-</html>
 
 <script>
     document.getElementById('save-product-btn').addEventListener('click', function () {
         document.getElementById('product-form').submit()
     })
 </script>
+</body>
+</html>

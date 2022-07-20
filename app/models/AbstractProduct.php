@@ -2,15 +2,34 @@
 
 abstract class AbstractProduct extends Model
 {
-    public abstract function getSku();
+    public function getSku(): string
+    {
+        return $this->getData('sku');
+    }
 
-    public abstract function setSku(string $sku): void;
+    public function setSku(string $sku): void
+    {
+        $this->setData('sku', $sku);
+    }
 
-    public abstract function getName();
+    public function getName(): string
+    {
+        return $this->getData('name');
+    }
 
-    public abstract function setName(string $name): void;
+    public function setName(string $name): void
+    {
+        $this->setData('name', $name);
+    }
 
-    public abstract function getPrice();
+    public function getPrice(): float
+    {
+        return $this->getData('price');
+    }
 
-    public abstract function setPrice(float $price): void;
+    public function setPrice(float $price): void
+    {
+        $this->setData('price', $price);
+    }
+
 }

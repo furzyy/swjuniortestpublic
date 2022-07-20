@@ -78,7 +78,6 @@
 
 .product-list_footer  {
     border-top: 3px solid #333333;
-
 }
 
 .product-list_footer p {
@@ -87,7 +86,7 @@
 }
 
 .empty-product-msg {
-    display: none;
+    /*display: none;*/
     justify-content:  center;
     align-items: center;
     padding-top: 30px;

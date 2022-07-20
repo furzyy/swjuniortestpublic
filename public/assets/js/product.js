@@ -13,9 +13,9 @@ class Product
         }).
         then(function (response) {
             if (response) {
-                const dataLength = Object.keys(data['productIds']).length
+                const dataLength = Object.keys(data['skus']).length
                 for (let i = 0; i < dataLength; i++) {
-                    let id = data['productIds'][i]
+                    let id = data['skus'][i]
                     document.getElementById(id).remove()
                 }
                 window.location.reload();
@@ -27,18 +27,14 @@ class Product
         const checkboxes = document.getElementsByClassName('delete-checkbox')
         const checkboxesLength = checkboxes.length
 
-
-        let productIds = []
+        let skus = []
         for (let i = 0; i < checkboxesLength; i++) {
             let checkbox = checkboxes[i]
             if (checkbox.checked) {
-                productIds.push(checkbox.value)
+                skus.push(checkbox.value)
             }
         }
-
-        this.postData({'productIds': productIds})
-
-
+        this.postData({'skus': skus})
     }
 
     typeSwitch(productName) {

@@ -5,9 +5,11 @@ $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 switch ($page) {
     case @"/":
-        $dvdCollection = $db->readList('dvd');
-        $bookCollection = $db->readList('book');
-        $furnitureCollection = $db->readList("furniture");
+        $productRepository = new ProductRepository();
+
+        $dvdCollection = $productRepository->getCollection('dvd');
+        $bookCollection = $productRepository->getCollection('book');
+        $furnitureCollection = $productRepository->getCollection("furniture");
 
         $template->render('index.php',
             [
@@ -16,7 +18,6 @@ switch ($page) {
                 'furnitureCollection' => $furnitureCollection
             ]);
         break;
-
     case @"/add-product":
         if ($requestMethod === "POST") {
             $productType = ucfirst($_POST["type_switcher"]);
@@ -35,6 +36,7 @@ switch ($page) {
 
             require_once BASE_DIR."/app/models/".$productType.".php";
 
+            $productRepository = new ProductRepository();
             $productObject = new $productType();
             $productObject->setSku($_POST["sku"]);
             $productObject->setName($_POST["name"]);
@@ -53,7 +55,7 @@ switch ($page) {
                 case "Book":
                     $productObject->setWeight($_POST["weight"]);
             }
-            $productObject->create($productType);
+            $productRepository->create($productObject);
         }
 
         $template->render(
@@ -62,10 +64,12 @@ switch ($page) {
         );
         break;
     case @"/delete-products":
-        $productIds = array_map(function ($item) {
-            return trim($item, '"');
-        }, explode(',', array_key_first($_POST['{"productIds":'])));
+        $productRepository = new ProductRepository();
 
-        $db->massDelete($productIds);
+        $skus = array_map(function ($item) {
+            return trim($item, '"');
+        }, explode(',', array_key_first($_POST['{"skus":'])));
+
+        $productRepository->massDelete($skus, 'sku');
         echo true;
 }

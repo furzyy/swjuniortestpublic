@@ -1,44 +1,39 @@
 <?php
 
-class Furniture extends BaseProduct
+class Furniture extends AbstractProduct
 {
-    public float $height;
-    public float $width;
-    public float $length;
-    public int $productId;
-
     public function getHeight(): float
     {
-        return $this->height;
+        return $this->getData('height');
     }
 
     public function setHeight(float $height): void
     {
-        $this->height = $height;
+        $this->setData('height', $height);
     }
 
     public function getWidth(): float
     {
-        return $this->width;
+        return $this->getData('width');
     }
 
     public function setWidth(float $width): void
     {
-        $this->width = $width;
+        $this->setData('width', $width);
     }
 
     public function getLength(): float
     {
-        return $this->length;
+        return $this->getData('length');
     }
 
     public function setLength(float $length): void
     {
-        $this->length = $length;
+        $this->setData('length', $length);
     }
 
     public function getProductId(): int
     {
-        return $this->productId;
+        return $this->getData('productId');
     }
 }

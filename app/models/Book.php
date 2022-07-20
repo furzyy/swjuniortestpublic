@@ -1,22 +1,19 @@
 <?php
 
-class Book extends BaseProduct
+class Book extends AbstractProduct
 {
-    public float $weight;
-    public int $productId;
-
     public function getWeight(): float
     {
-        return $this->weight;
+        return $this->getData('weight');
     }
 
     public function setWeight(float $weight): void
     {
-        $this->weight = $weight;
+        $this->setData('weight', $weight);
     }
 
     public function getProductId(): int
     {
-        return $this->productId;
+        return $this->getData('productId');
     }
 }

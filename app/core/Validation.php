@@ -9,12 +9,13 @@ class Validation
     }
 
     private function isValidNum($value): bool {
-        if (!is_numeric($value) || (float)$value < 0) {
+        if ($value !== "" && !is_numeric($value) || (float)$value < 0) {
             return false;
         }
-
         return true;
     }
+
+
 
     private function validateBaseData()
     {

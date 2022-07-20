@@ -4,7 +4,7 @@ class Template
 {
     const TEMPLATE_DIR = BASE_DIR . '/app/templates/';
 
-    public function render(string $fileName, array $data = null): string
+    public function render(string $fileName, array $data = null): void
     {
         ob_start();
         extract($data);
